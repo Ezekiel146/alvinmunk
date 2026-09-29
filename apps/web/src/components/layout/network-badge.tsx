@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 
 export type StellarNetwork = 'mainnet' | 'testnet';
@@ -25,14 +28,15 @@ export function resolveNetwork(
  * distinct green "Mainnet". Rendered in both the navbar and the footer.
  */
 export function NetworkBadge({ className }: { className?: string }) {
+  const t = useTranslations();
   const isMainnet = resolveNetwork() === 'mainnet';
-  const label = isMainnet ? 'Mainnet' : 'Testnet · test funds';
+  const label = t(isMainnet ? 'network.badge.mainnet' : 'network.badge.testnet');
 
   return (
     <Link
       href="/api/health"
-      aria-label={`Network: ${isMainnet ? 'Mainnet' : 'Testnet'} — view status`}
-      title="View network status"
+      aria-label={t('network.badge.aria', { network: isMainnet ? 'Mainnet' : 'Testnet' })}
+      title={t('network.badge.title')}
       className={cn(
         'inline-flex w-fit items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors',
         isMainnet

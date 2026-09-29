@@ -50,11 +50,8 @@ export function Footer() {
           <p className="max-w-xs text-sm text-muted-foreground text-balance">
             {t('footer.tagline')}
           </p>
-          <span className="mt-1 inline-flex w-fit items-center gap-1.5 rounded-full border border-secondary/40 px-2.5 py-1 text-xs text-secondary/90">
-            <span className="size-1.5 rounded-full bg-secondary motion-safe:animate-glow-pulse" />
-            {t('footer.live')}
-          </span>
-          {/* Which Stellar network these funds are real on — links to /api/health. */}
+          {/* Which Stellar network these funds are real on — links to /api/health. It replaces a
+              static "Live on Stellar testnet" pill that would have kept saying testnet on mainnet. */}
           <NetworkBadge className="mt-1" />
           {/* Language switcher lives here — prominent but not distracting */}
           <LanguageSwitcher variant="pill" className="mt-1 w-fit" />
