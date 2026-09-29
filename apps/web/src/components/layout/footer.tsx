@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Logo } from '@/components/brand/logo';
+import { NetworkBadge } from '@/components/layout/network-badge';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { useTranslations } from '@/lib/i18n';
 import { asset } from '@/lib/assets';
@@ -53,6 +54,8 @@ export function Footer() {
             <span className="size-1.5 rounded-full bg-secondary motion-safe:animate-glow-pulse" />
             {t('footer.live')}
           </span>
+          {/* Which Stellar network these funds are real on — links to /api/health. */}
+          <NetworkBadge className="mt-1" />
           {/* Language switcher lives here — prominent but not distracting */}
           <LanguageSwitcher variant="pill" className="mt-1 w-fit" />
         </div>
